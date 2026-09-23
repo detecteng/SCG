@@ -1,0 +1,91 @@
+{
+  "sizes": [
+    1000,
+    10000,
+    50000,
+    100000,
+    200000
+  ],
+  "rows": [
+    {
+      "n_instances": 1031,
+      "n_nodes": 5124,
+      "n_edges": 4933,
+      "flat": {
+        "impact_analysis_ms": 0.059,
+        "delete_isolated_ms": 0.098,
+        "false_coverage_scoped_ms": 0.0413
+      },
+      "linear": {
+        "false_coverage_full_ms": 1.2352,
+        "gaps_full_ms": 0.1225,
+        "naive_edge_load_ms": 3.9044,
+        "full_recompute_ms": 8.2256
+      }
+    },
+    {
+      "n_instances": 10031,
+      "n_nodes": 50124,
+      "n_edges": 49033,
+      "flat": {
+        "impact_analysis_ms": 0.057,
+        "delete_isolated_ms": 0.0991,
+        "false_coverage_scoped_ms": 0.042
+      },
+      "linear": {
+        "false_coverage_full_ms": 14.4225,
+        "gaps_full_ms": 0.7881,
+        "naive_edge_load_ms": 44.2774,
+        "full_recompute_ms": 89.1612
+      }
+    },
+    {
+      "n_instances": 50031,
+      "n_nodes": 250124,
+      "n_edges": 245033,
+      "flat": {
+        "impact_analysis_ms": 0.0578,
+        "delete_isolated_ms": 0.0976,
+        "false_coverage_scoped_ms": 0.0419
+      },
+      "linear": {
+        "false_coverage_full_ms": 75.0865,
+        "gaps_full_ms": 4.4987,
+        "naive_edge_load_ms": 254.2785,
+        "full_recompute_ms": 504.2689
+      }
+    },
+    {
+      "n_instances": 100031,
+      "n_nodes": 500124,
+      "n_edges": 490033,
+      "flat": {
+        "impact_analysis_ms": 0.0588,
+        "delete_isolated_ms": 0.102,
+        "false_coverage_scoped_ms": 0.0411
+      },
+      "linear": {
+        "false_coverage_full_ms": 153.0634,
+        "gaps_full_ms": 9.3278,
+        "naive_edge_load_ms": 530.4458,
+        "full_recompute_ms": 1113.005
+      }
+    },
+    {
+      "n_instances": 200031,
+      "n_nodes": 1000124,
+      "n_edges": 980033,
+      "flat": {
+        "impact_analysis_ms": 0.0584,
+        "delete_isolated_ms": 0.1027,
+        "false_coverage_scoped_ms": 0.0437
+      },
+      "linear": {
+        "false_coverage_full_ms": 330.1697,
+        "gaps_full_ms": 19.7819,
+        "naive_edge_load_ms": 1140.4351,
+        "full_recompute_ms": 2307.7474
+      }
+    }
+  ]
+}

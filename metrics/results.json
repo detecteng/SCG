@@ -1,0 +1,262 @@
+{
+  "graph_summary": {
+    "app": 8,
+    "ttp": 8,
+    "threat_instance": 13,
+    "detection": 11,
+    "control": 7,
+    "control_instance": 7,
+    "telemetry": 12,
+    "edges": {
+      "DESCRIBES": 13,
+      "DETECTED_BY": 12,
+      "HAS_CI": 7,
+      "HAS_TI": 13,
+      "IMPLEMENTED_BY": 7,
+      "MITIGATED_BY": 8,
+      "MITIGATED_BY_REF": 13,
+      "POWERS": 11,
+      "PRODUCES": 11
+    }
+  },
+  "T1_aggregation_gap": {
+    "n_instances": 13,
+    "n_techniques": 8,
+    "technique_view": {
+      "detection_coverage_pct": 100.0,
+      "full_coverage_pct": 75.0
+    },
+    "instance_view_mapped": {
+      "detection_coverage_pct": 84.6,
+      "full_coverage_pct": 53.8,
+      "status_counts": {
+        "covered": 7,
+        "partial": 4,
+        "gap": 2,
+        "unknown": 0
+      },
+      "concealed_detection_gaps": 2,
+      "concealed_detection_gap_pct": 15.4,
+      "heterogeneous_techniques": 2,
+      "heterogeneous_technique_pct": 25.0
+    },
+    "instance_view": {
+      "operable_detection_pct": 61.5,
+      "full_coverage_pct": 46.2,
+      "status_counts": {
+        "covered": 6,
+        "partial": 3,
+        "gap": 4,
+        "unknown": 0
+      },
+      "aggregation_gap": 5,
+      "aggregation_gap_pct": 38.5,
+      "detective_unknown": 0,
+      "heterogeneous_techniques": 3,
+      "heterogeneous_technique_pct": 37.5
+    }
+  },
+  "T2_false_coverage": {
+    "false_coverage_mappings": 3,
+    "false_coverage_detail": [
+      {
+        "ti": "app:aws:ttp:T1530:v1",
+        "detection": "S3 Mass Object Download",
+        "telemetry": "CloudTrail S3 Data Events",
+        "app": "AWS"
+      },
+      {
+        "ti": "app:ep-cat-b:ttp:T1003.001:v1",
+        "detection": "LSASS Access (Sysmon EID 10)",
+        "telemetry": "Sysmon Operational (EID 1/10)",
+        "app": "Endpoint Cat B (Legacy)"
+      },
+      {
+        "ti": "app:gcp:ttp:T1530:v1",
+        "detection": "GCS Bulk Egress",
+        "telemetry": "GCP Data Access Audit Logs",
+        "app": "GCP"
+      }
+    ],
+    "n_detected_by_edges": 12,
+    "false_coverage_edge_pct": 25.0,
+    "n_detection_bearing_instances": 11,
+    "instances_with_false_coverage": 3,
+    "instances_with_false_coverage_pct": 27.3,
+    "instances_losing_all_detection": [
+      "app:aws:ttp:T1530:v1",
+      "app:ep-cat-b:ttp:T1003.001:v1",
+      "app:gcp:ttp:T1530:v1"
+    ],
+    "instances_losing_all_detection_pct": 27.3,
+    "status_degradations": [
+      {
+        "ti_id": "app:aws:ttp:T1530:v1",
+        "app": "AWS",
+        "ttp": "T1530",
+        "mapped_status": "covered",
+        "effective_status": "partial",
+        "override": true
+      },
+      {
+        "ti_id": "app:ep-cat-b:ttp:T1003.001:v1",
+        "app": "Endpoint Cat B (Legacy)",
+        "ttp": "T1003.001",
+        "mapped_status": "partial",
+        "effective_status": "gap",
+        "override": false
+      },
+      {
+        "ti_id": "app:gcp:ttp:T1530:v1",
+        "app": "GCP",
+        "ttp": "T1530",
+        "mapped_status": "partial",
+        "effective_status": "gap",
+        "override": false
+      }
+    ],
+    "overstated_instances_pct": 23.1
+  },
+  "T3_unknown_sensitivity": {
+    "n_operably_detected_instances": 8,
+    "per_source_instances_to_unknown": {
+      "tel:ds-repl": [
+        "app:ad:ttp:T1003.006:v1"
+      ],
+      "tel:webapp-log": [
+        "app:webapp:ttp:T1190:v1"
+      ],
+      "tel:aws-ct-mgmt": [
+        "app:aws:ttp:T1078.004:v1",
+        "app:aws:ttp:T1580:v1"
+      ],
+      "tel:edr": [
+        "app:ep-cat-a:ttp:T1566.002:v1"
+      ],
+      "tel:entra-signin": [
+        "app:entra:ttp:T1078.004:v1",
+        "app:entra:ttp:T1621:v1"
+      ]
+    },
+    "n_single_source_fragile_instances": 7,
+    "single_source_fragile": [
+      "app:ad:ttp:T1003.006:v1",
+      "app:aws:ttp:T1078.004:v1",
+      "app:aws:ttp:T1580:v1",
+      "app:entra:ttp:T1078.004:v1",
+      "app:entra:ttp:T1621:v1",
+      "app:ep-cat-a:ttp:T1566.002:v1",
+      "app:webapp:ttp:T1190:v1"
+    ],
+    "n_telemetry_redundant_instances": 1,
+    "telemetry_redundant": [
+      "app:ep-cat-a:ttp:T1003.001:v1"
+    ],
+    "note": "Each fragile instance's operable detection hangs on ONE telemetry source; if its collector fails, its detective evidence is `unknown`, not proof of a gap."
+  },
+  "T4_recommendation_gap": {
+    "n_recommendation_gaps": 17,
+    "recommendation_gaps": [
+      {
+        "app_id": "app:aws",
+        "ttp": "T1078.004",
+        "missing_mitigation": "M1032 Multi-factor Authentication"
+      },
+      {
+        "app_id": "app:aws",
+        "ttp": "T1530",
+        "missing_mitigation": "M1041 Encrypt Sensitive Information"
+      },
+      {
+        "app_id": "app:aws",
+        "ttp": "T1580",
+        "missing_mitigation": "M1018 User Account Management"
+      },
+      {
+        "app_id": "app:ad",
+        "ttp": "T1003.006",
+        "missing_mitigation": "M1015 Active Directory Configuration"
+      },
+      {
+        "app_id": "app:ep-cat-a",
+        "ttp": "T1003.001",
+        "missing_mitigation": "M1028 Operating System Configuration"
+      },
+      {
+        "app_id": "app:ep-cat-a",
+        "ttp": "T1566.002",
+        "missing_mitigation": "M1017 User Training"
+      },
+      {
+        "app_id": "app:ep-cat-b",
+        "ttp": "T1003.001",
+        "missing_mitigation": "M1028 Operating System Configuration"
+      },
+      {
+        "app_id": "app:ep-cat-b",
+        "ttp": "T1003.001",
+        "missing_mitigation": "M1043 Credential Access Protection"
+      },
+      {
+        "app_id": "app:ep-cat-b",
+        "ttp": "T1566.002",
+        "missing_mitigation": "M1017 User Training"
+      },
+      {
+        "app_id": "app:ep-cat-b",
+        "ttp": "T1566.002",
+        "missing_mitigation": "M1021 Restrict Web-Based Content"
+      },
+      {
+        "app_id": "app:gcp",
+        "ttp": "T1078.004",
+        "missing_mitigation": "M1026 Privileged Account Management"
+      },
+      {
+        "app_id": "app:gcp",
+        "ttp": "T1078.004",
+        "missing_mitigation": "M1032 Multi-factor Authentication"
+      },
+      {
+        "app_id": "app:gcp",
+        "ttp": "T1530",
+        "missing_mitigation": "M1041 Encrypt Sensitive Information"
+      },
+      {
+        "app_id": "app:gcp",
+        "ttp": "T1530",
+        "missing_mitigation": "M1057 Data Loss Prevention"
+      },
+      {
+        "app_id": "app:webapp",
+        "ttp": "T1190",
+        "missing_mitigation": "M1030 Network Segmentation"
+      },
+      {
+        "app_id": "app:webapp",
+        "ttp": "T1190",
+        "missing_mitigation": "M1050 Exploit Protection"
+      },
+      {
+        "app_id": "app:entra",
+        "ttp": "T1078.004",
+        "missing_mitigation": "M1026 Privileged Account Management"
+      }
+    ]
+  },
+  "T5_impact_simulation": {
+    "simulated_node": "tel:ds-repl",
+    "node_label": "AD Directory Replication Monitoring",
+    "coverage_changes": [
+      {
+        "ti_id": "app:ad:ttp:T1003.006:v1",
+        "app_id": "app:ad",
+        "ttp_id": "ttp:T1003.006",
+        "version_id": "v1",
+        "current_status": "partial",
+        "new_status": "gap"
+      }
+    ],
+    "n_coverage_changes": 1
+  }
+}
